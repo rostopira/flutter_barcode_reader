@@ -51,6 +51,10 @@ class BarcodeScannerWidgetController(
 
     override fun onListen(p0: Any?, eventSink: EventChannel.EventSink?) {
         this.eventSink = eventSink
+        if (lastScanned != null) {
+            eventSink?.success(lastScanned)
+            lastScanned = null
+        }
     }
 
     override fun onCancel(p0: Any?) {}
