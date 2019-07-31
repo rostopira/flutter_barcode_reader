@@ -16,10 +16,14 @@ class BarcodeScanPlugin(val activity: Activity): MethodCallHandler,
     @JvmStatic
     fun registerWith(registrar: Registrar): Unit {
       val channel = MethodChannel(registrar.messenger(), "com.apptreesoftware.barcode_scan")
-        if (registrar.activity() != null) {
-            val plugin = BarcodeScanPlugin(registrar.activity())
-            channel.setMethodCallHandler(plugin)
-            registrar.addActivityResultListener(plugin)
+      if (registrar.activity() != null) {
+        val plugin = BarcodeScanPlugin(registrar.activity())
+        channel.setMethodCallHandler(plugin)
+        registrar.addActivityResultListener(plugin)
+        registrar.platformViewRegistry().registerViewFactory(
+          "com.apptreesoftware.barcodescan.BarcodeScannerWidget",
+          BarcodeScannerWidgetFactory(registrar.messenger())
+        )
       }
     }
   }

@@ -1,3 +1,7 @@
+## [1.1.0] - 7/31/19
+
+* Feature: scanner widget to embed inside Flutter UI
+
 ## [1.0.0] - 8/30/18
 
 Breaking Change: Adds support for AndroidX

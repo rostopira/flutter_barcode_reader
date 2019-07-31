@@ -65,3 +65,8 @@ To use on iOS, you must add the the camera usage description to your Info.plist
 
     <key>NSCameraUsageDescription</key>
     <string>Camera permission is required for barcode scanning.</string>
+
+If you want to use BarcodeScannerWidget, you have to add following to your Info.plist
+
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
